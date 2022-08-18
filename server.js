@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 app.use('/', homeRoutes)
-app.use('/todos', todoRoutes)
+app.use('/:listName/todos', todoRoutes)
  
 app.listen(process.env.PORT, ()=>{
     console.log(`Server is running on port ${process.env.PORT}, you better catch it!`)

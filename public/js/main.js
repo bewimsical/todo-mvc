@@ -1,6 +1,7 @@
-const deleteBtn = document.querySelectorAll('.del')
-const todoItem = document.querySelectorAll('span.not')
-const todoComplete = document.querySelectorAll('span.completed')
+const deleteBtn = document.querySelectorAll('.todoItem .del')
+const todoItem = document.querySelectorAll('.todoItem span.not')
+const todoComplete = document.querySelectorAll('.todoItem span.completed')
+const listItem = document.querySelectorAll('.listName')
 
 Array.from(deleteBtn).forEach((el)=>{
     el.addEventListener('click', deleteTodo)
@@ -12,6 +13,10 @@ Array.from(todoItem).forEach((el)=>{
 
 Array.from(todoComplete).forEach((el)=>{
     el.addEventListener('click', markIncomplete)
+})
+
+Array.from(listItem).forEach((el) => {
+    el.addEventListener('click', openList)
 })
 
 async function deleteTodo(){
@@ -66,4 +71,10 @@ async function markIncomplete(){
     }catch(err){
         console.log(err)
     }
+}
+
+ function openList(){
+    const listID = this.dataset.id
+    console.log(typeof(listID))
+
 }

@@ -8,6 +8,20 @@
 </head>
 <body>
     <h1>Create A Todo List By Clicking The Button Below</h1>
-    <a href="/todos"> New Todo List</a>
+    <ul>
+        <% lists.forEach( el => { %>
+            <li class='listName' data-id='<%=el._id%>'>
+                <a href="/<%= el.list %>/todos" class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.list %></a>
+                <span class='del'> Delete </span>
+                <!-- ramove delete button, add count -->
+            </li>
+        <% }) %>    
+        </ul>
+    <form action="/createList" method='POST'>
+        <input type="text" placeholder="Enter List Name" name='listName'>
+        <input type="submit">
+    </form>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
