@@ -1,4 +1,171 @@
-h1{
+html {
+    font-family: 'Ibarra Real Nova', serif;
+}
+
+body{
+    background: #ececec;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+/* partials */
+
+header{
+    height: 125px;
+    border-radius: 0 0 10px 10px;
+    background-color: white;
+    text-align: center;
+
+}
+
+header img{
+    height: 100px;
+    padding: 20px;
+}
+
+/* forms and buttons */
+form {
+    height: 50px;
+    width: 300px;
+    max-width: 95%;
+    padding: 10px;
+    padding-right: 5px;
+    border: 1px solid black;
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    padding: 0;
+    position: relative;
+    margin-top: 10px;
+  }
+  
+  input {
+    
+    font-size: 30px;
+    /* border: white;
+    width: calc(100% - 45px); */
+    border-radius: 9999px;
+    border: 1px solid black;
+    padding: 15px 45px 15px 15px;
+    width: 100%;
+  }
+  
+  input:focus-visible {
+    outline: black auto 1px;
+    outline-color: black;
+    outline-style: auto;
+    outline-width: 1px;
+  }
+  
+  button {
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+    padding: 1px 6px;
+    background: black;
+    border: black;
+    color: white;
+    text-align: center;
+    transition: color 0.2s;
+    position: absolute;
+    right: 6px;
+    cursor: pointer;
+  }
+  
+  button:hover,
+  button:focus{
+    color: grey;
+  }
+  
+  button:active{
+    background-color: grey;
+    color: black;
+  }
+/* list items */
+
+h1.home{
+    /* text-align: center; */
+    font-size: 40px;
+    color: black;
+    margin-top: 35px;
+}
+ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 510px;
+    padding-left: 0;
+}
+ul.todos{
+    max-width: 300px;
+}
+li.card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    width: 150px;
+    background: white;
+    margin: 10px;
+    border-radius: 5px;
+    position: relative;
+}
+
+li.card.todoItem{
+    justify-content: flex-start;
+    margin: 5px;
+    height: 75px;
+    width: 250px;
+    padding-left: 10px;
+}
+
+li.card.todoItem.completed{
+    background-color: gray;
+}
+.todoItem span{
+    font-size: 25px;
+    font-weight: bold;
+
+}
+
+i.fa-xmark{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: gray;
+    cursor: pointer;
+}
+li.card a{
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.fa-circle-check,
+.fa-circle{
+    font-size: 25px;
+    padding-right: 8px;
+}
+
+.fa-circle-check.not{
+    display: none;
+}
+
+.fa-circle.completed{
+    display: none;
+}
+
+/* h1{
     color: red;
 }
 .completed{
@@ -7,4 +174,4 @@ h1{
 }
 .not{
     text-decoration: underline;
-}
+} */

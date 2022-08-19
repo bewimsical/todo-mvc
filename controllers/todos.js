@@ -1,5 +1,4 @@
 const Todo = require('../models/Todo')
-const List = require('../models/List')
 
 module.exports = {
     getTodos: async (req,res)=>{

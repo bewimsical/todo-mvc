@@ -1,7 +1,7 @@
 const deleteBtn = document.querySelectorAll('.todoItem .del')
-const todoItem = document.querySelectorAll('.todoItem span.not')
-const todoComplete = document.querySelectorAll('.todoItem span.completed')
-const listItem = document.querySelectorAll('.listName')
+const todoItem = document.querySelectorAll('.todoItem i.not')
+const todoComplete = document.querySelectorAll('.todoItem i.completed')
+const deleteListItem = document.querySelectorAll('.listName .del')
 
 Array.from(deleteBtn).forEach((el)=>{
     el.addEventListener('click', deleteTodo)
@@ -15,8 +15,8 @@ Array.from(todoComplete).forEach((el)=>{
     el.addEventListener('click', markIncomplete)
 })
 
-Array.from(listItem).forEach((el) => {
-    el.addEventListener('click', openList)
+Array.from(deleteListItem).forEach((el) => {
+    el.addEventListener('click', deleteList)
 })
 
 async function deleteTodo(){
@@ -73,8 +73,22 @@ async function markIncomplete(){
     }
 }
 
- function openList(){
-    const listID = this.dataset.id
-    console.log(typeof(listID))
+ async function deleteList(){
+    const listId = this.parentNode.dataset.id
+    console.log(listId)
+    try{
+        const response = await fetch('/deleteList', {
+            method: 'delete',
+            headers: {'Content-type': 'application/json'},
+            body: JSON.stringify({
+                'listIdFromJSFile': listId
+            })
+        })
+        const data = await response.json()
+        console.log(data)
+        location.reload()
+    }catch(err){
+        console.log(err)
+    }
 
 }

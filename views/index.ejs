@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <%- include('partials/head'); %>
 </head>
 <body>
-    <h1>Create A Todo List By Clicking The Button Below</h1>
-    <ul>
-        <% lists.forEach( el => { %>
-            <li class='listName' data-id='<%=el._id%>'>
-                <a href="/<%= el.list %>/todos" class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.list %></a>
-                <span class='del'> Delete </span>
-                <!-- ramove delete button, add count -->
-            </li>
-        <% }) %>    
-        </ul>
-    <form action="/createList" method='POST'>
-        <input type="text" placeholder="Enter List Name" name='listName'>
-        <input type="submit">
-    </form>
+    <header>
+        <%- include('partials/header'); %>
+    </header>
+    <section>
+        <h1 class="home">Your Lists</h1>
+        <ul>
+            <% lists.forEach( el => { %>
+                <li class='listName card' data-id='<%=el._id%>'>
+                    <i class="fa-solid fa-xmark del"></i>
+                    <a href="/<%= el.list %>/todos" class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.list %></a>
+                    <!-- remove delete button, add count -->
+                </li>
+            <% }) %>    
+            </ul>
+        <form action="/createList" method='POST'>
+            <input type="text" placeholder="Enter List Name" name='listName'>
+            <button type="submit"><i class="fa-solid fa-plus"></i></button>
+            <!-- <input type="submit"> -->
+        </form>
+    </section>
+    
 
     <script src="js/main.js"></script>
 </body>

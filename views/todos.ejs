@@ -1,32 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
+    <%- include('partials/head'); %>
 </head>
 <body>
-    <a href="/">home</a>
-    <h1>To dos</h1>
-    <h2><%= listName %></h2>
-    <ul>
-    <% todos.forEach( el => { %>
-        <li class='todoItem' data-id='<%=el._id%>'>
-            <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-            <span class='del'> Delete </span>
-        </li>
-    <% }) %>    
-    </ul>
+    <header>
+        <%- include('partials/header'); %>
+    </header>
+    <section>
+        <h1 class="home"><%= listName %></h1>
+        <ul class="todos">
+        <% todos.forEach( el => { %>
+            <li class='todoItem card <%= el.completed === true ? 'completed' : 'not'%>' data-id='<%=el._id%>'>
+                <i class="fa-solid fa-xmark del"></i>
+                <i class="fa-regular fa-circle <%= el.completed === true ? 'completed' : 'not'%>"></i>
+                <i class="fa-solid fa-circle-check <%= el.completed === true ? 'completed' : 'not'%>"></i>
+                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+            </li>
+        <% }) %>    
+        </ul>
+    
+        <h2>Things left to do: <%= left %></h2>
+    
+        <form action="/<%= listName %>/todos/createTodo" method='POST'>
+            <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+            <button type="submit"><i class="fa-solid fa-plus"></i></button>
+        </form>
+    </section>
+   
 
-    <h2>Things left to do: <%= left %></h2>
-
-    <form action="/<%= listName %>/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="submit">
-    </form>
-
-    <script src="js/main.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 </html>
