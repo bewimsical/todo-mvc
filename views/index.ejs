@@ -5,13 +5,28 @@
 </head>
 <body>
     <header>
-        <%- include('partials/header'); %>
+        <nav>
+            <a href="/lists"><img src="/images/ToDo.png" alt="logo"></a>
+           <div class="btn-container">
+                <div class="user">
+                    <a href="/login"> Login</a>
+                </div>
+                <div class="user">
+                    <a href="/signup"> Signup</a>
+                </div>
+           </div>
+        </nav>
     </header>
-    <section>
-        <h1>Create Your VERY OWN Todolist!</h1>
-        <a href="/login"> Login</a>
-        <a href="/signup"> Signup</a>
-    </section>
+    <div class="col-container">
+        <section class="col-40 home">
+            <h1>Create <br>SIMPLE<br> todo lists.</h1>
+            <p>Get. Sh!t. Done.<br>CHECK IT OFF!</p>
+        </section>
+        <section class="col-60 home">
+            <img class="checklist-img" src="/images/undraw_handcrafts_to_do.svg" alt="checklist">
+        </section>
+    </div>
+   
     
     <script src="js/main.js"></script>
 </body>

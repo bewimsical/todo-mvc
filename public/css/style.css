@@ -13,7 +13,15 @@ section {
     align-items: center;
     padding-bottom: 20px;
 }
-
+.col-container{
+    display: flex;
+}
+.col-60{
+    width: 60%;
+}
+.col-40{
+    width: 40%;
+}
 /* partials */
 
 header{
@@ -35,7 +43,16 @@ header img{
     padding: 20px;
     padding-left: 35px;
 }
+div.btn-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+div.btn-container a{
+    color: black;
+    text-decoration: none;
+}
 div.user{
     display: flex;
     justify-content: center;
@@ -128,6 +145,19 @@ form {
   form.login{
     flex-wrap: wrap;
   }
+
+/* home */
+.checklist-img{
+    width: 50%;
+    padding: 100px
+}
+.home h1{
+    font-size: 4em;
+}
+.home p{
+    font-size: 1.5em;
+    text-align: center;
+}
 /* list items */
 
 h1.home{
