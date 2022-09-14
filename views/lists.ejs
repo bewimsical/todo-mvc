@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head'); %>
+</head>
+<body>
+    <header>
+        <%- include('partials/user-header'); %>
+    </header>
+    <section>
+        <h1 class="home">Your Lists</h1>
+        <ul>
+            <% lists.forEach( el => { %>
+                <li class='listName card' data-id='<%=el._id%>'>
+                    <i class="fa-solid fa-xmark del"></i>
+                    <a href="/<%= el._id %>/todos" class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.list %></a>
+                    <!-- remove delete button, add count -->
+                </li>
+            <% }) %>    
+            </ul>
+        <form action="/createList" method='POST'>
+            <input type="text" placeholder="Enter List Name" name='listName'>
+            <button type="submit"><i class="fa-solid fa-plus"></i></button>
+            <!-- <input type="submit"> -->
+        </form>
+    </section>
+    
+
+    <script src="js/main.js"></script>
+</body>
+</html>

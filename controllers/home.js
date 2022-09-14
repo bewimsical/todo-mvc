@@ -2,10 +2,13 @@ const List = require('../models/List')
 const Todo = require('../models/Todo')
 
 module.exports = {
-    getIndex: async (req,res)=>{
+    getIndex: (req,res)=>{
+        res.render('index.ejs')
+    },
+    getLists: async (req,res)=>{
         try{
-            const listNames = await List.find()
-            res.render('index.ejs', {lists: listNames})
+            const listNames = await List.find({userId:req.user.id})
+            res.render('lists.ejs', {lists: listNames, user: req.user})
         }catch(err){
             console.log(err)
         }
@@ -13,9 +16,9 @@ module.exports = {
     },
     createList: async (req, res)=>{
         try{
-            await List.create({list: req.body.listName, completed: false})
+            await List.create({list: req.body.listName, completed: false, userId: req.user.id})
             console.log('New list has been created!')
-            res.redirect('/')
+            res.redirect('/lists')
         }catch(err){
             console.log(err)
         }

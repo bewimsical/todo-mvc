@@ -1,22 +1,25 @@
 const Todo = require('../models/Todo')
+const List = require('../models/List')
 
 module.exports = {
     getTodos: async (req,res)=>{
         try{
-            const listName = req.params.listName
-            const todoItems = await Todo.find({list: listName})
-            const itemsLeft = await Todo.countDocuments({list: listName, completed: false})
-            res.render('todos.ejs', {todos: todoItems, left: itemsLeft, listName: listName})
+            const listId = req.params.listId
+            const listName = await List.find({_id: listId})
+            const todoItems = await Todo.find({list: listId})
+            const itemsLeft = await Todo.countDocuments({list: listId, completed: false})
+            res.render('todos.ejs', {todos: todoItems, left: itemsLeft, listId: listId, listName: listName, user: req.user})
+            console.log(!req.user)
         }catch(err){
             console.log(err)
         }
     },
     createTodo: async (req, res)=>{
         try{
-            const listName = req.params.listName
-            await Todo.create({list: listName, todo: req.body.todoItem, completed: false})
+            const listId = req.params.listId
+            await Todo.create({list: listId, todo: req.body.todoItem, completed: false})
             console.log('Todo has been added!')
-            res.redirect(`/${listName}/todos`)
+            res.redirect(`/${listId}/todos`)
         }catch(err){
             console.log(err)
         }

@@ -8,24 +8,11 @@
         <%- include('partials/header'); %>
     </header>
     <section>
-        <h1 class="home">Your Lists</h1>
-        <ul>
-            <% lists.forEach( el => { %>
-                <li class='listName card' data-id='<%=el._id%>'>
-                    <i class="fa-solid fa-xmark del"></i>
-                    <a href="/<%= el.list %>/todos" class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.list %></a>
-                    <!-- remove delete button, add count -->
-                </li>
-            <% }) %>    
-            </ul>
-        <form action="/createList" method='POST'>
-            <input type="text" placeholder="Enter List Name" name='listName'>
-            <button type="submit"><i class="fa-solid fa-plus"></i></button>
-            <!-- <input type="submit"> -->
-        </form>
+        <h1>Create Your VERY OWN Todolist!</h1>
+        <a href="/login"> Login</a>
+        <a href="/signup"> Signup</a>
     </section>
     
-
     <script src="js/main.js"></script>
 </body>
 </html>

@@ -21,14 +21,48 @@ header{
     border-radius: 0 0 10px 10px;
     background-color: white;
     text-align: center;
+}
 
+header nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 40px;
 }
 
 header img{
     height: 100px;
     padding: 20px;
+    padding-left: 35px;
 }
 
+div.user{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 75px;
+    font-size: 25px;
+    padding: 20px;
+    border-radius: 9999px;
+}
+
+div.user:hover,
+div.user:active{
+    background-color: #ececec;
+}
+
+.fa-user-astronaut{
+    padding-right: 10px;
+}
+
+div.user span{
+    user-select: none;
+}
+
+div.user .logout{
+    font-size: 15px;
+}
 /* forms and buttons */
 form {
     height: 50px;
@@ -88,6 +122,11 @@ form {
   button:active{
     background-color: grey;
     color: black;
+  }
+
+  form.signup,
+  form.login{
+    flex-wrap: wrap;
   }
 /* list items */
 
@@ -155,6 +194,7 @@ li.card a{
 .fa-circle{
     font-size: 25px;
     padding-right: 8px;
+    cursor: pointer;
 }
 
 .fa-circle-check.not{

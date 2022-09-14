@@ -5,10 +5,10 @@
 </head>
 <body>
     <header>
-        <%- include('partials/header'); %>
+        <%- include('partials/user-header'); %>
     </header>
     <section>
-        <h1 class="home"><%= listName %></h1>
+        <h1 class="home"><%= listName[0].list %></h1>
         <ul class="todos">
         <% todos.forEach( el => { %>
             <li class='todoItem card <%= el.completed === true ? 'completed' : 'not'%>' data-id='<%=el._id%>'>
@@ -22,7 +22,7 @@
     
         <h2>Things left to do: <%= left %></h2>
     
-        <form action="/<%= listName %>/todos/createTodo" method='POST'>
+        <form action="/<%= listId %>/todos/createTodo" method='POST'>
             <input type="text" placeholder="Enter Todo Item" name='todoItem'>
             <button type="submit"><i class="fa-solid fa-plus"></i></button>
         </form>
