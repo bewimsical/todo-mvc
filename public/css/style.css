@@ -166,6 +166,7 @@ h1.home{
     font-size: 40px;
     color: black;
     margin-top: 35px;
+    text-transform: capitalize;
 }
 ul {
     list-style: none;
@@ -204,6 +205,7 @@ li.card.todoItem.completed{
 .todoItem span{
     font-size: 25px;
     font-weight: bold;
+    text-transform: capitalize;
 
 }
 
@@ -219,6 +221,7 @@ li.card a{
     color: black;
     font-size: 25px;
     font-weight: bold;
+    text-transform: capitalize;
 }
 
 .fa-circle-check,
